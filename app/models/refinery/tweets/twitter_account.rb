@@ -9,22 +9,27 @@ module Refinery
       validate :only_one_account, :on => :create
       validates_presence_of :username, :tweet_count, :visible
 
-      after_commit :update_settings!
+      after_save :update_settings_cache
 
       class << self
+
+        def account
+          first
+        end
+
         def account_settings
-          $tweets_twitter_account ||= generate_settings_hash!
+          Rails.cache.read('refinery-twitter-account-settings')
         end
 
         def update_settings!
-          $tweets_twitter_account = generate_settings_hash!
+          Rails.cache.write('refinery-twitter-account-settings', generate_settings_hash!)
         end
 
         def generate_settings_hash!
           settings_hash = {}
-          attributes = columns.map {|c| c.name}
+          attributes = %w(username tweet_count visible)
           attributes.each do |key|
-            settings_hash.merge!(key => self.send(key.to_sym))
+            settings_hash.merge!(key => account.send(key.to_sym))
           end
           settings_hash
         end
@@ -40,8 +45,12 @@ module Refinery
 
       private
 
+      def update_settings_cache
+        self.class.update_settings!
+      end
+
       def only_one_account
-        if TwitterAccount.count != 0
+        if self.class.account
           errors[:base] << "You can only have one Twitter account."
         end
       end
