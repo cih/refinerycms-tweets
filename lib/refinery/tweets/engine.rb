@@ -5,6 +5,12 @@ module Refinery
 
       isolate_namespace Refinery::Tweets
 
+      initializer 'load helper' do |app|
+        ActiveSupport.on_load :action_controller do
+          helper Refinery::Tweets::TweetsHelper
+        end
+      end
+
       initializer "init plugin" do
         Refinery::Plugin.register do |plugin|
           plugin.pathname = root
