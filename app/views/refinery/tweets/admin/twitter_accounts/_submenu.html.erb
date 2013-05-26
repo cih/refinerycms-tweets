@@ -1,0 +1,16 @@
+<div id='actions'>
+  <ul>
+    <% if @twitter_account.nil? %>
+    <li <%= "class='selected'" if params[:action] == "new" %>>
+      <%= link_to t('refinery.plugins.refinerycms_tweets.add'), refinery.new_tweets_admin_twitter_account_path, :class => "add_icon" %>
+    </li>
+    <% else %>
+    <li <%= "class='selected'" if params[:action] == "edit" %>>
+      <%= link_to t('refinery.plugins.refinerycms_tweets.edit'), refinery.edit_tweets_admin_twitter_account_path, :class => "edit_icon" %>
+    </li>
+    <li>
+      <%= link_to t('refinery.plugins.refinerycms_tweets.delete'), refinery.tweets_admin_twitter_account_path, :class => "delete_icon", :method => :delete %>
+    </li>
+    <% end %>
+  </ul>
+</div>

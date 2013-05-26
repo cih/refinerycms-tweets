@@ -1,0 +1,9 @@
+en:
+  refinery:
+    plugins:
+      refinerycms_tweets:
+        title: Twitter
+        add: Add a Twitter account
+        edit: Edit Twitter account
+        delete: Delet Twitter account
+        no_account: You don't have a Twitter account listed. Click "Add a Twitter account" to add your account.

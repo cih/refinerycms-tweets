@@ -1,0 +1,9 @@
+<%= render "submenu" %>
+<div id='records'>
+  <% if @twitter_account %>
+    <%= @twitter_account.username %>
+    <%= @twitter_account.tweet_count %>
+  <% else %>
+    <p><strong><%= t('refinery.plugins.refinerycms_tweets.no_account') %><strong></p>
+  <% end %>
+</div>
