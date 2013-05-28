@@ -4,6 +4,7 @@ class CreateTwitterAccounts < ActiveRecord::Migration
       create_table :refinery_tweets_twitter_accounts, :force => true do |t|
         t.string   :username
         t.integer  :tweet_count, :default => 5
+        t.string   :widget_id
         t.boolean  :visible, :default => true
         t.timestamps
       end

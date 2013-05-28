@@ -4,7 +4,7 @@ module Refinery
   module Tweets
     class TwitterAccount < Refinery::Core::BaseModel
 
-      attr_accessible :username, :tweet_count, :visible
+      attr_accessible :username, :tweet_count, :widget_id, :visible
 
       validate :only_one_account, :on => :create
       validates_presence_of :username, :tweet_count, :visible
@@ -27,7 +27,7 @@ module Refinery
 
         def generate_settings_hash!
           settings_hash = {}
-          attributes = %w(username tweet_count visible)
+          attributes = %w(username tweet_count visible widget_id)
           attributes.each do |key|
             settings_hash.merge!(key => account.send(key.to_sym))
           end
