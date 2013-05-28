@@ -12,10 +12,9 @@ module Refinery
       # using the public API is used
       #
       def tweets(options={})
-        return unless twitter_account_setup?
-        if use_twitter_widget?
+        if can_use_twitter_widget?
           twitter_widget(options)
-        else
+        elsif can_use_jquery_tweet_list?
           tweet_list(options)
         end
       end
@@ -88,12 +87,12 @@ module Refinery
         Refinery::Tweets::TwitterAccount.account_settings
       end
 
-      def use_twitter_widget?
-        account_settings["widget_id"].present?
+      def can_use_twitter_widget?
+        account_settings["username"] && account_settings["widget_id"].present? && Refinery::Tweets.use_twitter_widget == true
       end
 
-      def twitter_account_setup?
-        true
+      def can_use_jquery_tweet_list?
+        account_settings["username"] && Refinery::Tweets.fallback_to_jquery_tweet_list == true
       end
 
       # Convert the options to html attributes

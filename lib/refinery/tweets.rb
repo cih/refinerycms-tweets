@@ -1,15 +1,10 @@
-
-
-
 require 'refinerycms-core'
-# require 'refinerycms-settings'
-# require "refinerycms/tweets/version"
 
 module Refinery
   autoload :TweetsGenerator, 'generators/refinery/tweets/tweets_generator'
   module Tweets
     require 'refinery/tweets/engine'
-    # require 'refinery/tweets/configuration'
+    require 'refinery/tweets/configuration'
 
     autoload :Version, 'refinery/tweets/version'
 
