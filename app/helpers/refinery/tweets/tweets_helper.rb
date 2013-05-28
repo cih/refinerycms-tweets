@@ -12,22 +12,58 @@ module Refinery
       # using the public API is used
       #
       def tweets(options={})
+        return unless twitter_account_setup?
         if use_twitter_widget?
-          twitter_widget(options={})
+          twitter_widget(options)
         else
-          tweet_list
+          tweet_list(options)
         end
+      end
+
+      def tweets_header
+        tweets_account_link + " on Twitter"
+      end
+
+      def tweets_account_link
+        link_to twitter_handle, refinery_tweets_url_for_account
+      end
+
+      def twitter_handle
+        "@" + account_settings["username"]
+      end
+
+      def refinery_tweets_url_for_account
+        "https://twitter.com/#{account_settings["username"]}"
       end
 
       private
 
-      # The basic tweet list does not take options
+      # The basic tweet takes an optional js callback
       # it returns a list of tweets based on
       # the tweet_count and username in the
       # Refinery::Tweets::TwitterAccount.account_settings
       #
-      def tweet_list
-        "No widget ID"
+      def tweet_list(options)
+        if options[:callback]
+          "bangarang"
+        end
+
+        content_for :javascripts do
+          %Q[ <script type="text/javascript">
+                $(function(){function e(e){output="";
+                $.each(e,function(e,n){output+='<li class="refinery-tweets-list-item-'+e+"\\">";
+                output+=t(n.text);output+="</li>"});
+                $(".refinery-tweets-list").append(output)}
+                function t(e){var t=/(\\b(https?|ftp|file):\\/\\/[-A-Z0-9+&@#\\/%?=~_|!:,.;]*[-A-Z0-9+&@#\\/%=~_|])/ig;
+                return e.replace(t,"<a href='$1'>$1</a>")}$.ajax({
+                url:"https://api.twitter.com/1/statuses/user_timeline/#{account_settings["username"]}.json?count=#{account_settings["tweet_count"]}",
+                dataType:"jsonp",success:#{options[:callback] || "function(t){e(t)}"},error:function(e){console.log(e)}})})
+              </script>].squish.html_safe
+        end
+
+         %Q[<ul class="refinery-tweets-list">
+            <h3>#{tweets_header}</h3>
+            </ul>].html_safe
       end
 
       # See a full list of options here
@@ -54,6 +90,10 @@ module Refinery
 
       def use_twitter_widget?
         account_settings["widget_id"].present?
+      end
+
+      def twitter_account_setup?
+        true
       end
 
       # Convert the options to html attributes
