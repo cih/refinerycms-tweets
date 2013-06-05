@@ -40,7 +40,9 @@ module Refinery
 
         def destroy
           @twitter_account = TwitterAccount.first
-          @twitter_account.destroy
+          if @twitter_account.destroy
+            Rails.cache.delete("refinery-twitter-account-settings")
+          end
 
           redirect_to refinery.tweets_admin_twitter_account_path
         end

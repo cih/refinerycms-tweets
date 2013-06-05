@@ -71,6 +71,14 @@ module Refinery
 
             page.should have_content("You don't have a Twitter account listed")
           end
+
+          it "clears the cached settings" do
+            visit refinery.tweets_admin_twitter_account_path
+
+            click_link "Delete Twitter account"
+
+            Rails.cache.read('refinery-twitter-account-settings').should == nil
+          end
         end
       end
     end
