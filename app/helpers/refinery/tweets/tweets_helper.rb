@@ -68,6 +68,7 @@ module Refinery
       def twitter_widget(options={})
         %Q[ <a class="twitter-timeline #{options[:class]}"
             #{to_html_options(options)}
+            data-tweet-limit=#{account_settings["tweet_count"]}
             href="https://twitter.com/#{account_settings["username"]}"
             data-widget-id="#{account_settings["widget_id"]}">
             Tweets by @#{account_settings["username"]}</a>
