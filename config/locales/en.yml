@@ -5,5 +5,15 @@ en:
         title: Twitter
         add: Add a Twitter account
         edit: Edit Twitter account
-        delete: Delet Twitter account
+        delete: Delete Twitter account
         no_account: You don't have a Twitter account listed. Click "Add a Twitter account" to add your account.
+        account_heading: Your Twitter Account
+        new_account: Add a Twitter Account
+        account: Twitter account
+        username: Username
+        username_help: Your Twitter username, the @ prefix is not required.
+        tweet_count: Number of tweets to display
+        tweet_count_help: How many tweets do you want to display?
+        visible: Visible?
+        visible_yes: Yes
+        visible_no: No
