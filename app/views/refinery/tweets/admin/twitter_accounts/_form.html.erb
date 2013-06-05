@@ -5,12 +5,16 @@
            :include_object_name => true %>
 
            <div class='field'>
-             <%= f.label :username %>
+             <%= f.label :username, t('refinery.plugins.refinerycms_tweets.username')%>
              <%= f.text_field :username %>
            </div>
            <div class='field'>
-             <%= f.label :tweet_count %>
-             <%= f.text_field :tweet_count %>
+            <%= f.label :tweet_count, t('refinery.plugins.refinerycms_tweets.tweet_count') %>
+            <%= f.text_field :tweet_count %>
+           </div>
+           <div class='field'>
+            <%= f.label :visible, t('refinery.plugins.refinerycms_tweets.visible') %>
+            <%= f.check_box :visible %>
            </div>
 
            <%= render '/refinery/admin/form_actions', :f => f,

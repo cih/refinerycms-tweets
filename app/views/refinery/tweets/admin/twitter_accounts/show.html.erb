@@ -1,8 +1,15 @@
 <%= render "submenu" %>
 <div id='records'>
   <% if @twitter_account %>
-    <%= @twitter_account.username %>
-    <%= @twitter_account.tweet_count %>
+    <h2><%= t('refinery.plugins.refinerycms_tweets.account_heading') %></h2>
+      <%= label_tag t('refinery.plugins.refinerycms_tweets.username') %>
+      <span><%= @twitter_account.username %></span>
+
+      <%= label_tag t('refinery.plugins.refinerycms_tweets.tweet_count') %>
+      <span><%= @twitter_account.tweet_count %></span>
+
+      <%= label_tag t('refinery.plugins.refinerycms_tweets.visible') %>
+      <span><%= @twitter_account.visible? ? t('refinery.plugins.refinerycms_tweets.visible_yes') : t('refinery.plugins.refinerycms_tweets.visible_no') %></span>
   <% else %>
     <p><strong><%= t('refinery.plugins.refinerycms_tweets.no_account') %><strong></p>
   <% end %>
