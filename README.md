@@ -65,7 +65,7 @@ In this case the callback will only be triggered if there is no widget_id.
 
 ## Screenshot
 
-![Admin view of the Twitter account]("http://cih-static.s3.amazonaws.com/refinerycms-tweets-screenshot.png")
+![Admin view of the Twitter account](http://cih-static.s3.amazonaws.com/refinerycms-tweets-screenshot.png)
 
 ## Testing
 
