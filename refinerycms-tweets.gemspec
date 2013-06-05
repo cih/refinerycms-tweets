@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["tochrisholmes@gmail.com"]
   spec.description   = %q{A Refinery CMS engine to add Twitter functionality.}
   spec.summary       = %q{Tweets allows you add a Twitter feed to your site in seconds.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/cih/refinerycms-tweets"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
