@@ -12,6 +12,7 @@ module Refinery
       # using the public API is used
       #
       def tweets(options={})
+        return unless account_settings["visible"] == true
         if can_use_twitter_widget?
           twitter_widget(options)
         elsif can_use_jquery_tweet_list?
