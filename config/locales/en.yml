@@ -13,6 +13,7 @@ en:
         username: Username
         username_help: Your Twitter username, the @ prefix is not required.
         tweet_count: Number of tweets to display
+        widget_id: Widget id
         tweet_count_help: How many tweets do you want to display?
         visible: Visible?
         visible_yes: Yes

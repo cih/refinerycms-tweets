@@ -5,6 +5,11 @@
       <%= label_tag t('refinery.plugins.refinerycms_tweets.username') %>
       <span><%= @twitter_account.username %></span>
 
+      <% if Refinery::Tweets.config.use_twitter_widget %>
+        <%= label_tag t('refinery.plugins.refinerycms_tweets.widget_id') %>
+        <span><%= @twitter_account.widget_id %></span>
+      <% end %>
+
       <%= label_tag t('refinery.plugins.refinerycms_tweets.tweet_count') %>
       <span><%= @twitter_account.tweet_count %></span>
 
