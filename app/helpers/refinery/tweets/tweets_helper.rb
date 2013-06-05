@@ -12,7 +12,7 @@ module Refinery
       # using the public API is used
       #
       def tweets(options={})
-        return unless account_settings["visible"] == true
+        return unless account_settings && account_settings["visible"] == true
         if can_use_twitter_widget?
           twitter_widget(options)
         elsif can_use_jquery_tweet_list?
@@ -44,10 +44,6 @@ module Refinery
       # Refinery::Tweets::TwitterAccount.account_settings
       #
       def tweet_list(options)
-        if options[:callback]
-          "bangarang"
-        end
-
         content_for :javascripts do
           %Q[ <script type="text/javascript">
                 $(function(){function e(e){output="";
@@ -101,7 +97,7 @@ module Refinery
       #
       def to_html_options(options)
         return if options.empty?
-
+        options.delete(:callback) if options[:callback].present?
         options.delete(:class) if options[:class].present?
 
         output = ""
