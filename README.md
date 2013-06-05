@@ -1,4 +1,4 @@
-# Tweets for RefineryCMS
+# Tweets for Refinery CMS
 
 ## About
 
@@ -49,9 +49,23 @@ then it will fallback to use the jQuery list. This behaviour can be changed in t
 
 ### Customising
 
-Just pass in you options as a hash. Here is an example using the twitter widget.
+Just pass in you options as a hash. Here is an example using the twitter widget. You can see a fill list of options in the [docs](https://dev.twitter.com/docs/embedded-timelines#customization)
 
-    <%= tweets("data-chrome)
+    <%= tweets("data-chrome"=> "noheader", "data-theme" => "dark", :callback => "testalert") %>
+
+    <%= content_for :javascripts do %>
+      <script>
+        function testalert(response){
+          alert(response);
+        }
+      </script>
+    <% end %>
+
+In this case the callback will only be triggered if there is no widget_id.
+
+## Screenshot
+
+![Admin view of the Twitter account]("http://cih-static.s3.amazonaws.com/refinerycms-tweets-screenshot.png")
 
 ## Testing
 
