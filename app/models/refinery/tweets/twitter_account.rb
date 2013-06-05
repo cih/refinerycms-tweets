@@ -7,7 +7,7 @@ module Refinery
       attr_accessible :username, :tweet_count, :widget_id, :visible
 
       validate :only_one_account, :on => :create
-      validates_presence_of :username, :tweet_count, :visible
+      validates_presence_of :username, :tweet_count
 
       after_save :update_settings_cache
 
