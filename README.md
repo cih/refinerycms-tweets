@@ -35,7 +35,7 @@ Just add an account and put the following into your view.
 
 Note: If you do not have a view template already then you will need to override one, here is an example of how to do that.
 
-    rake refinery:override view=refinery/pages/show
+    rake refinery:override view=refinery/_footer
 
 ## Configuration
 
