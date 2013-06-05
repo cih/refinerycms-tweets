@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Refinery::Tweets::VERSION
   spec.authors       = ["Chris Holmes"]
   spec.email         = ["tochrisholmes@gmail.com"]
-  spec.description   = %q{jhsbadf qdjfhbqdfjlhw ohf}
-  spec.summary       = %q{sadkfjn eqofihbeqf}
+  spec.description   = %q{A Refinery CMS engine to add Twitter functionality.}
+  spec.summary       = %q{Tweets allows you add a Twitter feed to your site in seconds.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
