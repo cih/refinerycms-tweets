@@ -6,8 +6,8 @@ Tweets allows you add a Twitter feed to your site in seconds.
 
 ## Features
 
-- Use either a Twitter widget or a jQuery implementation using the Public API
-- JQuery implementation accepts an optional callback to override the response rendering
+- Use either a Twitter [widget](https://twitter.com/settings/widgets) or a jQuery implementation using the Public API
+- JQuery implementation accepts an optional callback to override the default response rendering
 - Twitter widget can be fully customised
 
 Note: The Twitter widget doesn't require jQuery however if you choose to use the Public API jQuery is required.
