@@ -1,6 +1,7 @@
 # Tweets for Refinery CMS
 
 [![Build Status](https://travis-ci.org/cih/refinerycms-tweets.png)](https://travis-ci.org/cih/refinerycms-tweets)
+[![Gem Version](https://badge.fury.io/rb/refinerycms-tweets.png)](http://badge.fury.io/rb/refinerycms-tweets)
 
 ## About
 
