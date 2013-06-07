@@ -17,7 +17,9 @@ I do plan to add a vanilla javascript implementation in future but pull requests
 
 Add this line to your application's Gemfile:
 
-    gem 'refinerycms-tweets'
+```ruby
+gem 'refinerycms-tweets'
+```
 
 Next run:
 
@@ -42,24 +44,28 @@ Note: If you do not have a view template already then you will need to override 
 By default the Twitter widget will be used if the twitter account has a username and widget_id. If there is a username but no widget_id
 then it will fallback to use the jQuery list. This behaviour can be changed in the initializer as required.
 
-    config/initializers/refinery/tweets.rb
+```ruby
+# config/initializers/refinery/tweets.rb
 
-    Refinery::Tweets.use_twitter_widget = true
-    Refinery::Tweets.fallback_to_jquery_tweet_list = true
+Refinery::Tweets.use_twitter_widget = true
+Refinery::Tweets.fallback_to_jquery_tweet_list = true
+```
 
 ### Customising
 
 Just pass in you options as a hash. Here is an example using the twitter widget. You can see a fill list of options in the [docs](https://dev.twitter.com/docs/embedded-timelines#customization)
 
-    <%= tweets("data-chrome"=> "noheader", "data-theme" => "dark", :callback => "testalert") %>
+```erb
+<%= tweets("data-chrome"=> "noheader", "data-theme" => "dark", :callback => "testalert") %>
 
-    <%= content_for :javascripts do %>
-      <script>
-        function testalert(response){
-          alert(response);
-        }
-      </script>
-    <% end %>
+<%= content_for :javascripts do %>
+  <script>
+    function testalert(response){
+      alert(response);
+    }
+  </script>
+<% end %>
+```
 
 In this case the callback will only be triggered if there is no widget_id.
 
