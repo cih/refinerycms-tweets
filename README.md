@@ -1,8 +1,10 @@
 # Tweets for Refinery CMS
 
+[![Build Status](https://travis-ci.org/cih/refinerycms-tweets.png)](https://travis-ci.org/cih/refinerycms-tweets)
+
 ## About
 
-Tweets allows you add a Twitter feed to your site in seconds.
+Tweets allows you add a Twitter feed to your site in minuites.
 
 ## Features
 
@@ -51,7 +53,7 @@ Refinery::Tweets.use_twitter_widget = true
 Refinery::Tweets.fallback_to_jquery_tweet_list = true
 ```
 
-### Customising
+## Customising
 
 Just pass in you options as a hash. Here is an example using the twitter widget. You can see a fill list of options in the [docs](https://dev.twitter.com/docs/embedded-timelines#customization)
 
