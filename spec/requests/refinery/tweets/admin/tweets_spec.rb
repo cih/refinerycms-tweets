@@ -3,6 +3,8 @@ require "spec_helper"
 module Refinery
   module Tweets
     module Admin
+      autoload :Authentication, 'refinery/testing/controller_macros/authentication'
+
       describe TwitterAccount do
         refinery_login_with :refinery_user
 
