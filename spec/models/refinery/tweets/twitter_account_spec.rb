@@ -5,7 +5,7 @@ module Refinery
     describe TwitterAccount do
       describe "validations" do
         subject do
-          Factory.build(:twitter_account,
+          FactoryGirl.build(:twitter_account,
                         :username => "twitter",
                         :tweet_count => "5")
         end

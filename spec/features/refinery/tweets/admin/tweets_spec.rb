@@ -3,13 +3,12 @@ require "spec_helper"
 module Refinery
   module Tweets
     module Admin
-      autoload :Authentication, 'refinery/testing/controller_macros/authentication'
 
       describe TwitterAccount do
         refinery_login_with :refinery_user
 
         let!(:twitter_account) do
-          Factory(:twitter_account, :username => "Chris Holmes",
+          FactoryGirl.create(:twitter_account, :username => "Chris Holmes",
                                     :tweet_count => 5,
                                     :widget_id => "123456789",
                                     :visible => true)
