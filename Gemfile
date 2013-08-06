@@ -1,13 +1,12 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 gemspec
 
-gem 'refinerycms', :git => 'git://github.com/refinery/refinerycms.git'
-gem 'refinerycms-settings', :git => 'git://github.com/refinery/refinerycms-settings.git'
-gem 'refinerycms-i18n', :git => 'git://github.com/refinery/refinerycms-i18n.git'
+gem 'refinerycms'
+gem 'refinerycms-i18n'
 
 group :development, :test do
-  gem 'refinerycms-testing', :git => 'git://github.com/refinery/refinerycms.git'
+  gem 'refinerycms-testing'
   gem 'guard-rspec', '~> 0.6.0'
   gem "capybara-email", "~> 0.1.2"
 
