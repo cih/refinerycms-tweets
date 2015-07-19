@@ -4,8 +4,6 @@ module Refinery
   module Tweets
     class TwitterAccount < Refinery::Core::BaseModel
 
-      attr_accessible :username, :tweet_count, :widget_id, :visible
-
       validate :only_one_account, :on => :create
       validates_presence_of :username, :tweet_count
 
