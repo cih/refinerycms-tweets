@@ -4,11 +4,13 @@ gemspec
 
 gem 'refinerycms'
 gem 'refinerycms-i18n'
+gem 'rails', '~> 3.2.13'
 
 group :development, :test do
   gem 'refinerycms-testing'
   gem 'guard-rspec', '~> 0.6.0'
   gem "capybara-email", "~> 0.1.2"
+  gem 'babosa','~> 0.3.11'
 
   platforms :jruby do
     gem 'activerecord-jdbcsqlite3-adapter'
@@ -60,8 +62,8 @@ end
 
 # Refinery/rails should pull in the proper versions of these
 group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
+  gem 'sass-rails', '3.2.4'
+  gem 'coffee-rails', '3.2.2'
   gem 'uglifier'
 end
 
