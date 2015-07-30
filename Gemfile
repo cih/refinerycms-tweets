@@ -4,6 +4,7 @@ gemspec
 
 gem 'refinerycms'
 gem 'refinerycms-i18n'
+gem 'rails', '~> 3.2.13'
 
 group :development, :test do
   gem 'refinerycms-testing'
