@@ -60,8 +60,8 @@ end
 
 # Refinery/rails should pull in the proper versions of these
 group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
+  gem 'sass-rails', '3.2.4'
+  gem 'coffee-rails', '3.2.2'
   gem 'uglifier'
 end
 
