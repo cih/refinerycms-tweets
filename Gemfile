@@ -10,6 +10,7 @@ group :development, :test do
   gem 'refinerycms-testing'
   gem 'guard-rspec', '~> 0.6.0'
   gem "capybara-email", "~> 0.1.2"
+  gem 'babosa','~> 0.3.11'
 
   platforms :jruby do
     gem 'activerecord-jdbcsqlite3-adapter'
