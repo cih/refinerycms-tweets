@@ -18,6 +18,6 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'refinerycms-core', '~> 2.1.0'
-  spec.add_dependency 'refinerycms-i18n', '~> 2.1.0'
+  spec.add_dependency 'refinerycms-core', '~> 3.0.0'
+  spec.add_dependency 'refinerycms-i18n', '~> 3.0.0'
 end
