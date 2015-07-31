@@ -24,28 +24,31 @@ module Refinery
         end
 
         it "stores the settings in the rails cache" do
-          Rails.cache.read('refinery-twitter-account-settings').should be_nil
+          expect(Rails.cache.read('refinery-twitter-account-settings')).to eq nil
+
           twitter_account = FactoryGirl.create(:twitter_account)
 
-          Rails.cache.read('refinery-twitter-account-settings').should == settings_hash(twitter_account)
+          expect(Rails.cache.read('refinery-twitter-account-settings'))
+            .to eq settings_hash(twitter_account)
         end
 
         it "reads the settings from the rails cache" do
           twitter_account = FactoryGirl.create(:twitter_account)
 
-          TwitterAccount.account_settings.should == settings_hash(twitter_account)
+          expect(TwitterAccount.account_settings)
+            .to eq settings_hash(twitter_account)
         end
 
         it "updates the cache when the settings are changed" do
           twitter_account = FactoryGirl.create(:twitter_account)
 
-          TwitterAccount.account_settings.should == settings_hash(twitter_account)
-          TwitterAccount.account_settings["username"].should == "twitter"
+          expect(TwitterAccount.account_settings).to eq settings_hash(twitter_account)
+          expect(TwitterAccount.account_settings['username']).to eq 'twitter'
 
-          twitter_account.update_attribute(:username, "new_username")
+          twitter_account.update_attribute(:username, 'new_username')
 
-          TwitterAccount.account_settings.should == settings_hash(twitter_account)
-          TwitterAccount.account_settings["username"].should == "new_username"
+          expect(TwitterAccount.account_settings).to eq settings_hash(twitter_account)
+          expect(TwitterAccount.account_settings['username']).to eq 'new_username'
         end
 
       end

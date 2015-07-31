@@ -5,7 +5,7 @@ module Refinery
     module Admin
 
       describe TwitterAccount do
-        refinery_login_with :refinery_user
+        refinery_login
 
         let!(:twitter_account) do
           FactoryGirl.create(:twitter_account, :username => "Chris Holmes",
@@ -21,13 +21,16 @@ module Refinery
             it "shows message" do
               visit refinery.tweets_admin_twitter_account_path
 
-              page.should have_content("You don't have a Twitter account listed")
+              expect(page).to have_content("You don't have a Twitter account listed")
             end
 
             it "has add account link" do
               visit refinery.tweets_admin_twitter_account_path
 
-              page.should have_link('Add a Twitter account', href: refinery.new_tweets_admin_twitter_account_path)
+              expect(page).to have_link(
+                'Add a Twitter account',
+                href: refinery.new_tweets_admin_twitter_account_path
+              )
             end
           end
         end
@@ -36,8 +39,11 @@ module Refinery
           it "does not have link to add account" do
             visit refinery.tweets_admin_twitter_account_path
 
-            page.should_not have_content("You don't have a Twitter account listed")
-            page.should_not have_link('Add a Twitter account', href: refinery.new_tweets_admin_twitter_account_path)
+            expect(page).not_to have_content("You don't have a Twitter account listed")
+            expect(page).not_to have_link(
+              'Add a Twitter account',
+              href: refinery.new_tweets_admin_twitter_account_path
+            )
           end
         end
 
@@ -45,22 +51,28 @@ module Refinery
           it "has account details" do
             visit refinery.tweets_admin_twitter_account_path
 
-            page.should have_content("Your Twitter Account")
-            page.should have_content("Username")
-            page.should have_content("Number of tweets")
-            page.should have_content("Visible")
+            expect(page).to have_content("Your Twitter Account")
+            expect(page).to have_content("Username")
+            expect(page).to have_content("Number of tweets")
+            expect(page).to have_content("Visible")
           end
 
           it "has edit link" do
             visit refinery.tweets_admin_twitter_account_path
 
-            page.should have_link('Edit Twitter account', href: refinery.edit_tweets_admin_twitter_account_path)
+            expect(page).to have_link(
+              'Edit Twitter account',
+              href: refinery.edit_tweets_admin_twitter_account_path
+            )
           end
 
           it "has delete link" do
             visit refinery.tweets_admin_twitter_account_path
 
-            page.should have_link('Delete Twitter account', href: refinery.tweets_admin_twitter_account_path)
+            expect(page).to have_link(
+              'Delete Twitter account',
+              href: refinery.tweets_admin_twitter_account_path
+            )
           end
         end
 
@@ -70,7 +82,7 @@ module Refinery
 
             click_link "Delete Twitter account"
 
-            page.should have_content("You don't have a Twitter account listed")
+            expect(page).to have_content("You don't have a Twitter account listed")
           end
 
           it "clears the cached settings" do
@@ -78,7 +90,7 @@ module Refinery
 
             click_link "Delete Twitter account"
 
-            Rails.cache.read('refinery-twitter-account-settings').should == nil
+            expect(Rails.cache.read('refinery-twitter-account-settings')).to eq nil
           end
         end
       end
