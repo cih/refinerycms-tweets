@@ -2,13 +2,15 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'refinerycms'
-gem 'refinerycms-i18n'
+gem 'refinerycms', '~> 2.1.0'
+gem 'refinerycms-i18n', :git => 'git://github.com/refinery/refinerycms-i18n.git',
+                        :branch => '2-1-stable'
 
 group :development, :test do
-  gem 'refinerycms-testing'
+  gem 'refinerycms-testing', :github => 'refinery/refinerycms', :branch => '2-1-stable'
   gem 'guard-rspec', '~> 0.6.0'
-  gem "capybara-email", "~> 0.1.2"
+  gem 'capybara-email', '~> 0.1.2'
+  gem 'babosa', '~> 0.3'
 
   platforms :jruby do
     gem 'activerecord-jdbcsqlite3-adapter'
