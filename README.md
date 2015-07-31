@@ -2,7 +2,7 @@
 
 ## About
 
-Tweets allows you add a Twitter feed to your site in minuites. This version of `refinerycms-tweets` supports Refinery 3.x and Rails 4.1.x. To use Rails 3.x / Refinery 2.1.x use the refinerycms-blog ["Refinery CMS 2-1 stable branch"](https://github.com/cih/refinerycms-tweets/tree/2-1-stable).
+Tweets allows you add a Twitter feed to your site in minuites. This version of `refinerycms-tweets` supports Refinery 3.x and Rails 4.1.x. To use Rails 3.x / Refinery 2.1.x use the refinerycms-tweets ["Refinery CMS 2-1 stable branch"](https://github.com/cih/refinerycms-tweets/tree/2-1-stable).
 
 ## Features
 
