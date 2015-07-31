@@ -12,7 +12,7 @@ module Refinery
         end
 
         def create
-          @twitter_account = TwitterAccount.new(params[:twitter_account])
+          @twitter_account = TwitterAccount.new(twitter_account_params)
 
           if @twitter_account.save
             render :show
@@ -33,7 +33,7 @@ module Refinery
 
         def update
           @twitter_account = TwitterAccount.first
-          @twitter_account.update_attributes(params[:twitter_account])
+          @twitter_account.update_attributes(twitter_account_params)
 
           render :show
         end
@@ -46,6 +46,13 @@ module Refinery
 
           redirect_to refinery.tweets_admin_twitter_account_path
         end
+
+       private
+      
+       def twitter_account_params
+          params.require(:twitter_account).permit(:username, :tweet_count, :widget_id, :visible)
+        end
+
       end
     end
   end
