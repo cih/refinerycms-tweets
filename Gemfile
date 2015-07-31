@@ -16,6 +16,7 @@ git 'https://github.com/refinery/refinerycms', branch: 'master' do
 end
 
 group :development, :test do
+  gem 'rspec-rails'
   platforms :jruby do
     gem 'activerecord-jdbcsqlite3-adapter'
     gem 'activerecord-jdbcmysql-adapter'
