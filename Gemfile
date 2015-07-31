@@ -2,6 +2,11 @@ source 'https://rubygems.org'
 
 gemspec
 
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'uglifier'
+gem 'jquery-rails'
+
 git 'https://github.com/refinery/refinerycms', branch: 'master' do
   gem 'refinerycms'
 
@@ -58,12 +63,3 @@ group :development, :test do
     end
   end
 end
-
-# Refinery/rails should pull in the proper versions of these
-group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
-  gem 'uglifier'
-end
-
-gem 'jquery-rails'
