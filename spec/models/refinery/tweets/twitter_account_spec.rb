@@ -4,17 +4,17 @@ module Refinery
   module Tweets
     describe TwitterAccount do
       describe "validations" do
-        subject do
+        let(:subject) {
           FactoryGirl.build(:twitter_account,
-                        :username => "twitter",
-                        :tweet_count => "5")
-        end
+            :username => "twitter",
+            :tweet_count => "5")
+        }
 
         it { should be_valid }
-        its(:errors) { should be_empty }
-        its(:username) { should == "twitter" }
-        its(:tweet_count) { should == 5 }
-        its(:visible) { should == true }
+        it { expect(subject.errors).to be_empty }
+        it { expect(subject.username).to eq 'twitter' }
+        it { expect(subject.tweet_count).to eq 5 }
+        it { expect(subject.visible).to eq true }
       end
 
       describe "account settings" do
