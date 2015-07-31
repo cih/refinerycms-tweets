@@ -1,16 +1,6 @@
 language: ruby
 rvm:
-  - "1.9.2"
-  - "1.9.3"
-  - "2.0.0"
-  - jruby-19mode # JRuby in 1.9 mode
-  - rbx-19mode
+  - 2.1
+  - 2.2
 before_script:
   - "bundle exec rake refinery:testing:dummy_app > /dev/null"
-matrix:
-  allow_failures:
-    - rvm: rbx-19mode
-    - rvm: jruby-19mode
-    - rvm: "1.9.2"
-# uncomment this line if your project needs to run something other than `rake`:
-# script: bundle exec rspec spec
