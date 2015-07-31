@@ -1,7 +1,4 @@
-# Tweets for Refinery CMS
-
-[![Build Status](https://travis-ci.org/cih/refinerycms-tweets.png)](https://travis-ci.org/cih/refinerycms-tweets)
-[![Gem Version](https://badge.fury.io/rb/refinerycms-tweets.png)](http://badge.fury.io/rb/refinerycms-tweets)
+# Tweets for Refinery CMS [![Build Status](https://travis-ci.org/cih/refinerycms-tweets.png)](https://travis-ci.org/cih/refinerycms-tweets)
 
 ## About
 
@@ -21,7 +18,7 @@ I do plan to add a vanilla javascript implementation in future but pull requests
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'refinerycms-tweets'
+gem 'refinerycms-tweets', '~> 2.1.0'
 ```
 
 Next run:
